@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>엘리먼트 조작 - append(), appendTo(), clone(), val()</title>
+  <style>
+    .item-container {
+      display: flex;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    .item-container .item {
+      border: 1px solid #000;
+      margin: 20px;
+      padding: 20px;
+      width: 100px;
+      height: 100px;
+    }
+
+    #box1 {
+      border: 1px solid red;
+    }
+
+    #box2 {
+      border: 1px solid blue;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      console.log($('#item1').html());
+
+      console.log($('#item1').text());
+
+      $('#item2').html('<strong>Swift</strong>');
+
+      $('#item3').text('Kotlin');
+
+      $('#box2').append('<div class="item">C#</div>');
+
+      $('#item4').appendTo('#box2'); //이동
+
+      $('#item5').clone().appendTo('#box2'); //복사
+
+      $('#btn1').on('click', function(){
+        var result = $('#text1').val(); //val - value 값을 가져오는 명령어
+        $('#result').text(result);
+      });
+    })
+  </script>
+</head>
+<body>
+  <div id="box1" class="item-container">
+    <div id="item1" class="item" ><strong>JAVA</strong></div>
+    <div id="item2" class="item" ><strong>Python</strong></div>
+    <div id="item3" class="item" ><strong>Javascript</strong></div>
+    <div id="item4" class="item" ><strong>Ruby</strong></div>
+    <div id="item5" class="item" ><strong>C++</strong></div>
+  </div>
+  <div id="box2" class="item-container"></div>
+  <div>
+    <div>
+      <input type="text" id="text1">
+      <button id="btn1">클릭</button>
+    </div>
+    <div>
+      결과값 : <span id="result"></span>
+    </div>
+  </div>
+</body>
+</html>
