@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Image Gallery</title>
+  <style>
+    #main-image-container {
+      margin: 10px;
+      min-height: 500px;
+    }
+
+    #main-image-container img {
+      height: 500px;
+    }
+
+    #image-container img {
+      height: 150px;
+    }
+
+    .selected {
+      border: 10px solid blue;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      var $imageList = $('#image-container img');
+      var $currentImage;
+      var $mainImageContainer = $('#main-image-container');
+
+      $imageList.on('click', function(){
+        if($currentImage && $currentImage.hasClass('selected')){
+          $currentImage.removeClass('selected');
+        }
+
+        $currentImage = $(this);
+
+        $mainImageContainer.empty();
+        $currentImage.clone().appendTo($mainImageContainer);
+
+        $currentImage.addClass('selected'); //이 코드를 순서를 바꿔서 위에 쓰면 border 추가된 이미지가 mainImageContainer에 clone 되기 때문에 제일 나중에 써줌.
+      })
+    })
+  </script>
+</head>
+<body>
+  <div id="main-image-container"></div>
+
+  <div id="image-container">
+    <img src="./images/01.jpg" alt="">
+    <img src="./images/02.jpg" alt="">
+    <img src="./images/03.jpg" alt="">
+    <img src="./images/04.jpg" alt="">
+  </div>
+</body>
+</html>
