@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Selectors 1 - :first, :last, :first-child, :even</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      //:first
+      $('td:first').css('color', 'red');
+
+      //:last
+      $('td:last').css('color', 'blue');
+
+      //:first-child
+      $('td:first-child').css('background-color', 'yellow');
+
+      //:even
+      $('tr:even').css('color', '#555');
+    })
+  </script>
+</head>
+<body>
+  <table id="language">
+    <thead>
+      <tr>
+        <th>언어</th>
+        <th>종류</th>
+        <th>연도</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>java</td>
+        <td>정적언어</td>
+        <td>1111</td>
+      </tr>
+      <tr>
+        <td>ruby</td>
+        <td>동적언어</td>
+        <td>2222</td>
+      </tr>
+      <tr>
+        <td>smalltalk</td>
+        <td>동적언어</td>
+        <td>3333</td>
+      </tr>
+      <tr>
+        <td>c++</td>
+        <td>동적언어</td>
+        <td>4444</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
